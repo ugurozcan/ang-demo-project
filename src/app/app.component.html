@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="isExpanded = !isExpanded">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">{{title}}</h1>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize>
+
+    <mat-sidenav #sidenav class="example-sidenav" mode="side" [opened]="isExpanded">
+        <mat-nav-list>
+            <div *ngFor="let item of menuList">
+                <a mat-list-item (click)="load(item.url)"> {{item.title}} </a>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <div>
+        <ng-template #container></ng-template>
+    </div>
+</mat-sidenav-container>
